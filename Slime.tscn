@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://swkhl5grd7vt"]
+
+[ext_resource type="Script" uid="uid://cj4tq0ekh0msp" path="res://slime.gd" id="1_cwriv"]
+[ext_resource type="Texture2D" uid="uid://bra8jsoh1xks3" path="res://Free Assets/brackeys_platformer_assets/sprites/slime_green.png" id="1_d12es"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oh23g"]
+size = Vector2(14, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_veqx5"]
+atlas = ExtResource("1_d12es")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm0v1"]
+atlas = ExtResource("1_d12es")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6tyh"]
+atlas = ExtResource("1_d12es")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oh23g"]
+atlas = ExtResource("1_d12es")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yp2de"]
+atlas = ExtResource("1_d12es")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50oqk"]
+atlas = ExtResource("1_d12es")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eeskg"]
+atlas = ExtResource("1_d12es")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt5hk"]
+atlas = ExtResource("1_d12es")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v48kq"]
+atlas = ExtResource("1_d12es")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abawa"]
+atlas = ExtResource("1_d12es")
+region = Rect2(72, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_veqx5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_veqx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xm0v1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6tyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6tyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xm0v1")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oh23g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yp2de")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50oqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eeskg")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jt5hk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v48kq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v48kq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abawa")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bful0"]
+radius = 96.04687
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwriv"]
+size = Vector2(10, 11)
+
+[node name="Slime" type="CharacterBody2D" unique_id=2087753046]
+script = ExtResource("1_cwriv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1994999644]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_oh23g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1751370480]
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_veqx5")
+animation = &"Death"
+
+[node name="PlayerDetection" type="Area2D" parent="." unique_id=123321890]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection" unique_id=2139923368]
+shape = SubResource("CircleShape2D_bful0")
+
+[node name="PlayerDeath" type="Area2D" parent="." unique_id=358308911]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDeath" unique_id=1819748393]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_cwriv")
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="body_entered" from="PlayerDeath" to="." method="_on_player_death_body_entered"]
+[connection signal="body_exited" from="PlayerDeath" to="." method="_on_player_death_body_exited"]
