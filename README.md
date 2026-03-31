@@ -1,4 +1,7 @@
 # 2D Platformer Game - Godot Engine
+![Main Menu](Screenshots/menu.png)
+![Start Screen 1](Screenshots/start1.png)
+![Start Screen 2](Screenshots/start2.png)
 
 ### 🎯 Scope & Purpose
 This is a personal project developed to explore game mechanics, physics engines, and the GDScript language. The main goal was to create a responsive and fun 2D platforming experience from scratch.
