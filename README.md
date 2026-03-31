@@ -3,20 +3,20 @@
 ![Start Screen 1](screenshots/start1.png)
 ![Start Screen 2](screenshots/start2.png)
 
-### 🎯 Scope & Purpose
+### 🎯 Scope
 This is a personal project developed to explore game mechanics, physics engines, and the GDScript language. The main goal was to create a responsive and fun 2D platforming experience from scratch.
-
+* **Context:** Independent Personal Project
+* **Status:** Ongoing / Functional Prototype
+  
 ### 🚀 Objectives
 * **Player Physics:** Implemented smooth movement, jumping, and gravity logic.
 * **Level Design:** Created a basic world with collision detection and environment interaction.
 * **State Management:** Developed logic for player states (idle, running, jumping) and basic game loops.
 * **Enemy AI:** Integrated simple slime enemies with basic movement patterns.
 
-### 🛠 Technologies & Context
+### 🛠 Technologies
 * **Engine:** Godot Engine 4.x
 * **Language:** GDScript
-* **Context:** Independent Personal Project
-* **Status:** Ongoing / Functional Prototype
 
 ### 📁 How to Run
 1. **Prerequisites:** Download and install [Godot Engine 4.x](https://godotengine.org/download).
